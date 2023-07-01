@@ -41,7 +41,7 @@ x.addEventListener("change", myFunction);
 // Events
 
 form.onsubmit = () => {
-  createTask(input.value);
+  if (input.value !== "") createTask(input.value);
   input.value = "";
   return false;
 };
@@ -76,6 +76,14 @@ clearBtn.onclick = () => {
 filters.forEach((el) => {
   el.onclick = () => sort(el);
 });
+
+if (localStorage.getItem("tasks")) {
+  list.innerHTML = localStorage.getItem("tasks");
+  itmLeft.innerHTML = document.querySelectorAll(
+    ".main ul > :not(.completed)"
+  ).length;
+  draganddrop();
+}
 
 // Functions
 
@@ -126,14 +134,6 @@ function sort(ele) {
     }
   }
   localStorage.setItem("tasks", list.innerHTML);
-}
-
-if (localStorage.getItem("tasks")) {
-  list.innerHTML = localStorage.getItem("tasks");
-  itmLeft.innerHTML = document.querySelectorAll(
-    ".main ul > :not(.completed)"
-  ).length;
-  draganddrop();
 }
 
 function draganddrop() {

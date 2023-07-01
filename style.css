@@ -34,7 +34,7 @@ header {
   align-items: center;
 }
 
-header img{
+header img {
   cursor: pointer;
   user-select: none;
 }
@@ -141,14 +141,14 @@ main form div,
   position: relative;
 }
 
-.main ul li > img{
+.main ul li>img {
   position: absolute;
   right: 24px;
   display: none;
   cursor: pointer;
 }
 
-.main ul li:hover > img{
+.main ul li:hover>img {
   display: block;
 }
 
@@ -210,8 +210,12 @@ main .tip {
     border-radius: 6px;
   }
 
+    .main ul li> img{
+      display: block;
+    }
+
   main .tip {
-    margin-top: 20px;
+    display: none;
   }
 }
 
